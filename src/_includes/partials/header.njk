@@ -1,0 +1,16 @@
+<header class="site-header">
+<div class="wrap header-bar">
+<a class="lockup" href="/" aria-label="Shinfield Parish First, home"{% if page.url == "/" %} aria-current="page"{% endif %}>{% emblem %}<span class="lockup-text" aria-hidden="true"><span class="lockup-name">{{ site.name }}</span><span class="lockup-tag">{{ site.tagline }}</span></span></a>
+<div class="header-actions">
+<a class="btn btn-small" href="/stand-with-us/">Get involved</a>
+<button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu</button>
+</div>
+</div>
+<nav id="main-nav" class="main-nav" aria-label="Main">
+<ul class="wrap">
+{%- for item in nav.main %}
+<li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a></li>
+{%- endfor %}
+</ul>
+</nav>
+</header>

@@ -1,0 +1,66 @@
+{%- set consentText = "I agree to Shinfield Parish First keeping these details and contacting me about the campaign. I can ask for them to be deleted at any time. Read the privacy notice." -%}
+{%- set connected = not (site.form.action | isPh) -%}
+{%- set recorded = site.form.action | phAttr -%}
+{%- if not connected and not build.isProduction %}
+<p class="form-not-connected">This form is not connected yet. It will send to {{ site.form.action | ph | safe }} at {{ site.form.provider | ph | safe }}.</p>
+{%- endif %}
+<form class="signup-form" id="signup-form" method="POST" action="{% if connected %}{{ site.form.action }}{% else %}#signup{% endif %}" novalidate data-validate>
+<div class="error-summary" id="error-summary" tabindex="-1" hidden>
+<h3 id="error-summary-title">There is a problem</h3>
+<ul></ul>
+</div>
+<input type="hidden" name="form_name" value="signup">
+<input type="hidden" name="consent_text" value="{{ consentText }}">
+<input type="hidden" name="{{ site.form.redirectField }}" value="{{ site.url }}/thank-you/">
+<div class="field" id="field-name">
+<label for="name">Your name (required)</label>
+<p class="field-error" id="name-error" hidden></p>
+<input id="name" name="name" type="text" autocomplete="name" required>
+</div>
+<div class="field" id="field-email">
+<label for="email">Email (required)</label>
+<p class="field-error" id="email-error" hidden></p>
+<input id="email" name="email" type="email" autocomplete="email" spellcheck="false" required>
+</div>
+<div class="field" id="field-ward">
+<label for="ward">Where you live (optional)</label>
+{%- if not site.wardsConfirmed %}
+<p class="field-hint" id="ward-hint">Ward names for 2027 to be confirmed.</p>
+{%- endif %}
+<select id="ward" name="ward"{% if not site.wardsConfirmed %} aria-describedby="ward-hint"{% endif %}>
+<option value="">Choose your ward</option>
+{%- for ward in site.wards %}
+<option>{{ ward }}</option>
+{%- endfor %}
+<option>Not sure</option>
+<option>Outside the parish</option>
+</select>
+</div>
+<div class="field" id="field-help">
+<fieldset class="checks" id="help">
+<legend>I'd like to (required, choose at least one)</legend>
+<p class="field-error" id="help-error" hidden></p>
+<div class="check"><input type="checkbox" id="help-candidate" name="help" value="Think about standing as a candidate" data-role="candidate"><label for="help-candidate">Think about standing as a candidate</label></div>
+<div class="check"><input type="checkbox" id="help-advocate" name="help" value="Be an advocate and spread the word" data-role="advocate"><label for="help-advocate">Be an advocate and spread the word</label></div>
+<div class="check"><input type="checkbox" id="help-candidate-area" name="help" value="Help a candidate in my area"><label for="help-candidate-area">Help a candidate in my area</label></div>
+<div class="check"><input type="checkbox" id="help-leaflets" name="help" value="Deliver leaflets on my street"><label for="help-leaflets">Deliver leaflets on my street</label></div>
+<div class="check"><input type="checkbox" id="help-poster" name="help" value="Display a window poster at election time"><label for="help-poster">Display a window poster at election time</label></div>
+<div class="check"><input type="checkbox" id="help-steering" name="help" value="Join the steering group"><label for="help-steering">Join the steering group</label></div>
+<div class="check"><input type="checkbox" id="help-suggest" name="help" value="Suggest someone who would make a good councillor"><label for="help-suggest">Suggest someone who would make a good councillor</label></div>
+</fieldset>
+</div>
+<div class="field" id="field-message">
+<label for="message">Anything else? (optional)</label>
+<p class="field-hint" id="message-hint">Up to 500 characters.</p>
+<textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="message-hint"></textarea>
+</div>
+<div class="field" id="field-consent">
+<p class="field-error" id="consent-error" hidden></p>
+<div class="check check-consent"><input type="checkbox" id="consent" name="consent" value="yes" required><label for="consent">I agree to Shinfield Parish First keeping these details and contacting me about the campaign. I can ask for them to be deleted at any time. Read the <a href="/privacy/">privacy notice</a>. (required)</label></div>
+</div>
+<div class="hp" aria-hidden="true">
+<label for="hp-field">Leave this empty</label>
+<input type="text" id="hp-field" name="{{ site.form.honeypotName }}" tabindex="-1" autocomplete="off">
+</div>
+<button class="btn" type="submit">Send</button>
+</form>

@@ -1,0 +1,56 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 5 * * *" # daily rebuild so date-based content (launch meeting, polling day) stays current
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ELEVENTY_ENV: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      # Test a root-path build first. This fails while any placeholder (imprint, email, form) is unfilled: that is deliberate.
+      - name: Build (production) and test
+        run: |
+          npm run build
+          npm test
+      # Then build for the real address. Until the custom domain is set, set the repository variable
+      # PAGES_PATH_PREFIX to /ShinfieldParishFirst/ (see docs/GOING-LIVE.md); afterwards set it to /.
+      - name: Build for Pages
+        env:
+          PATH_PREFIX: ${{ vars.PAGES_PATH_PREFIX || '/' }}
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

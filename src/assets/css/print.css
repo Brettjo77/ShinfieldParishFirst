@@ -1,0 +1,9 @@
+@media print {
+  body { background: var(--color-print-bg); color: var(--color-print-text); font-size: 12pt; }
+  .main-nav, .menu-button, .header-actions, .skip-link, .preview-banner, .cta-band, .signup-form { display: none !important; }
+  .site-header, .site-footer, .section-alt { background: none; color: var(--color-print-text); border-color: var(--color-print-text); }
+  .site-footer a, .site-footer { color: var(--color-print-text); }
+  .footer-emblem { display: none; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.9em; }
+  .imprint { display: block !important; }
+}

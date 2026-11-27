@@ -1,0 +1,15 @@
+{
+  "main": [
+    { "text": "Home", "url": "/" },
+    { "text": "About us", "url": "/about/" },
+    { "text": "What a councillor does", "url": "/what-a-councillor-does/" },
+    { "text": "Stand with us", "url": "/stand-with-us/" },
+    { "text": "Have your say", "url": "/have-your-say/" },
+    { "text": "Contact", "url": "/contact/" }
+  ],
+  "footer": [
+    { "text": "Privacy notice", "url": "/privacy/" },
+    { "text": "Accessibility statement", "url": "/accessibility/" },
+    { "text": "Contact", "url": "/contact/" }
+  ]
+}

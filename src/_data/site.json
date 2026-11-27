@@ -1,0 +1,61 @@
+{
+  "name": "Shinfield Parish First",
+  "tagline": "Parish before party",
+  "url": "https://shinfieldparishfirst.org.uk",
+  "lang": "en-GB",
+  "electionDate": "2027-05-06",
+  "electionDateText": "Thursday 6 May 2027",
+  "seats": 18,
+  "majority": 10,
+  "wardCount": "[[5, confirm for 2027]]",
+  "wards": ["Shinfield Village", "Shinfield North", "Spencers Wood and Three Mile Cross", "Spencers Wood South", "Grazeley"],
+  "wardsConfirmed": false,
+  "ecRegistered": false,
+  "imprint": {
+    "promoter": "[[promoter name]]",
+    "address": "[[promoter address]]",
+    "sameAddress": true,
+    "spfAddress": "[[SPF correspondence address]]"
+  },
+  "email": "contact@shinfieldparishfirst.co.uk",
+  "facebook": "[[Facebook page URL]]",
+  "postalAddress": "[[correspondence address]]",
+  "surveyUrl": "[[survey link]]",
+  "surveyProvider": "[[survey service name]]",
+  "form": {
+    "provider": "[[form service]]",
+    "action": "[[form endpoint URL]]",
+    "honeypotName": "_gotcha",
+    "redirectField": "_next",
+    "dataLocation": "[[where the form service stores data, and the transfer safeguard if outside the UK]]"
+  },
+  "privacy": {
+    "controller": "[[data controller: Shinfield Parish First, or the named officer until SPF is constituted]]",
+    "retainUntil": "[[31 August 2027]]"
+  },
+  "links": {
+    "ecCandidateGuidance": "[[Electoral Commission guidance URL for parish candidates, Brett to confirm]]",
+    "parishCouncil": "https://www.shinfieldparish.gov.uk/"
+  },
+  "analytics": { "enabled": false, "goatcounterCode": "" },
+  "founder": { "name": "Brett Johnson", "role": "Shinfield Parish Councillor and Chair of the Facilities Committee" },
+  "launchMeeting": {
+    "show": true,
+    "confirmed": false,
+    "date": "Thursday 14 January 2027, 7.30pm",
+    "isoDate": "2027-01-14",
+    "startTime": "19:30",
+    "endTime": "21:00",
+    "venue": "Spencers Wood Village Hall, Basingstoke Road, RG7 1AJ"
+  },
+  "figures": {
+    "precept": "£667,000",
+    "preceptYear": "2025-26",
+    "bandD": "£90.69",
+    "bandDYear": "2026-27",
+    "lastChecked": "2026-11-27"
+  },
+  "timeCommitment": "15 to 20 hours a month",
+  "nominationDeadlineText": "about Thursday 8 April 2027, 4pm",
+  "nominationDeadlineConfirmed": false
+}
