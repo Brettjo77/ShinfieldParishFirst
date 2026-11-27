@@ -1,0 +1,54 @@
+/*
+  Design tokens. The ONLY place colours and fonts are set.
+  Brand values come from the logo kit (src/assets/img/brand/spf-brand-tokens.css: --spf-*).
+  A rebrand replaces that kit file and, if needed, edits the role mapping below. See docs/REBRAND.md.
+  Fallback values after the commas are the interim Charcoal & Copper pick (Brett, 27 Nov 2026, replacing Damson & Copper).
+*/
+:root {
+  /* Brand */
+  --brand-primary: var(--spf-main, #2B3035);          /* headings, header, primary buttons */
+  --brand-accent: var(--spf-copper, #B8642E);         /* decoration, large display text only */
+  --brand-accent-strong: var(--spf-copper-text, #9A4F1F); /* links, small accent text, secondary buttons */
+  --brand-paper: var(--spf-stone, #F1EDE7);           /* page background */
+  --brand-ink: var(--spf-ink, #1D2124);               /* body text */
+  --brand-olive: var(--spf-green, #A5BA5E);           /* thin rules and small details ONLY */
+
+  /* Roles: components use these, never the brand values directly */
+  --color-bg: var(--brand-paper);
+  --color-surface: #FFFFFF;
+  --color-text: var(--brand-ink);
+  --color-text-muted: #53595E;
+  --color-heading: var(--brand-primary);
+  --color-link: var(--brand-accent-strong);
+  --color-button-bg: var(--brand-primary);
+  --color-button-text: #FFFFFF;
+  --color-button-secondary-bg: var(--brand-accent-strong);
+  --color-button-secondary-text: #FFFFFF;
+  --color-focus: var(--brand-accent-strong);
+  --color-border: #7D848A;     /* form field borders: 3:1 on surface */
+  --color-rule: var(--brand-olive);
+  --color-decoration: var(--brand-accent);
+  --color-band-bg: var(--brand-primary);  /* footer and call-to-action bands */
+  --color-band-text: var(--brand-paper);
+  --color-band-focus: var(--brand-paper);
+  --color-error: #A3201B;      /* error text and border; always with words */
+  --color-placeholder-bg: #FFF3B0; /* highlights unfilled [[placeholders]] in preview builds */
+  --color-placeholder-text: #3D2E00;
+  --color-ballot-paper: #FFFFFF; /* the ballot illustration is black on white, as it would print */
+  --color-ballot-ink: #000000;
+  --color-print-bg: #FFFFFF;
+  --color-print-text: #000000;
+
+  /* Fonts (self-hosted, see fonts.css) */
+  --font-heading: var(--spf-font-display, "Bricolage Grotesque", system-ui, sans-serif);
+  --font-body: var(--spf-font-body, "Atkinson Hyperlegible", system-ui, sans-serif);
+
+  /* Type scale: base 18px, fluid headings */
+  --step-0: 1.125rem;
+  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --step-3: clamp(1.9rem, 1.5rem + 2vw, 3rem);
+  --step-small: 1rem; /* never below 16px */
+  --measure: 65ch;
+  --radius: 6px;
+}

@@ -1,0 +1,11 @@
+:root {
+  /* Shinfield Parish First brand: Concept B "Field & path", charcoal & Copper */
+  --spf-main: #2B3035;        /* main colour: headings, bands, logo disc */
+  --spf-copper: #B8642E;      /* accent: large text and graphics */
+  --spf-copper-text: #9A4F1F; /* copper for body-size text and buttons on light grounds */
+  --spf-stone: #F1EDE7;       /* light background */
+  --spf-ink: #1D2124;         /* body text */
+  --spf-green: #A5BA5E;       /* hint only: logo furrows, thin rules, small icons */
+  --spf-font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --spf-font-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+}

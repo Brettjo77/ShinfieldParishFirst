@@ -1,0 +1,16 @@
+<figure class="ballot" aria-labelledby="ballot-caption">
+<p class="visually-hidden">Illustration of two rows on a ballot paper. The first row shows a candidate listed as SURNAME, Firstname, with the description Shinfield Parish First, our black and white emblem in a box, and an empty voting box. The second row shows another candidate, SURNAME, Firstname, with the description Other description, an empty emblem box and an empty voting box.</p>
+<div class="ballot-paper" aria-hidden="true">
+<div class="ballot-row">
+<div class="ballot-cand"><span class="ballot-name">SURNAME, Firstname</span><span class="ballot-desc">Shinfield Parish First</span></div>
+<div class="ballot-emblem"><img src="/assets/img/brand/spf-emblem-ballot-bw.svg" alt="" width="44" height="44"></div>
+<div class="ballot-vote"></div>
+</div>
+<div class="ballot-row">
+<div class="ballot-cand"><span class="ballot-name">SURNAME, Firstname</span><span class="ballot-desc">Other description</span></div>
+<div class="ballot-emblem"></div>
+<div class="ballot-vote"></div>
+</div>
+</div>
+<figcaption id="ballot-caption">{% if site.ecRegistered %}Illustration only. Real ballot papers are set out by the returning officer.{% else %}Illustration only. Our name and emblem appear on the ballot once registered with the Electoral Commission.{% endif %}</figcaption>
+</figure>

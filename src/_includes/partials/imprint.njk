@@ -1,0 +1,5 @@
+{%- if site.imprint.sameAddress -%}
+Promoted by {{ site.imprint.promoter | ph | safe }} on behalf of Shinfield Parish First, both of {{ site.imprint.address | ph | safe }}.
+{%- else -%}
+Promoted by {{ site.imprint.promoter | ph | safe }}, {{ site.imprint.address | ph | safe }}, on behalf of Shinfield Parish First, {{ site.imprint.spfAddress | ph | safe }}.
+{%- endif -%}

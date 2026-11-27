@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+{%- if build.noindex or noindex %}
+<meta name="robots" content="noindex">
+{%- endif %}
+<meta name="theme-color" content="{{ build.themeColor }}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/atkinson-hyperlegible-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<meta property="og:title" content="{{ ogTitle or title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ site.name }}: {{ site.tagline }}. Shinfield Parish Council election, {{ site.electionDateText }}.">
+<meta name="twitter:card" content="summary_large_image">
+<script>document.documentElement.className = "js";</script>
+<script src="/assets/js/site.js" defer></script>
+{%- if site.analytics.enabled and site.analytics.goatcounterCode %}
+<script data-goatcounter="https://{{ site.analytics.goatcounterCode }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}
+{%- if jsonld %}
+{% include "partials/jsonld.njk" %}
+{%- endif %}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+{%- if build.env == "preview" %}
+<div class="preview-banner" role="note"><div class="wrap">Preview, not the live site. Yellow highlights are placeholders still to be filled in.</div></div>
+{%- elif build.env == "development" %}
+<div class="preview-banner" role="note"><div class="wrap">Development build. Yellow highlights are placeholders still to be filled in.</div></div>
+{%- endif %}
+{% include "partials/header.njk" %}
+<main id="main" tabindex="-1">
+{{ content | safe }}
+{%- if cta %}
+{% include "partials/cta.njk" %}
+{%- endif %}
+</main>
+{% include "partials/footer.njk" %}
+</body>
+</html>

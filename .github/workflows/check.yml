@@ -1,0 +1,42 @@
+name: Check pull request
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Preview build
+        run: npm run build:preview
+      - name: Tests (validation, links, imprint, contrast, tracking, form, axe at 360px and 1280px)
+        run: npm test
+      - name: Upload the built preview site
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-site
+          path: _site
+          retention-days: 14
+      # Lighthouse runs on a build without the preview "noindex", so the SEO score reflects the live site.
+      - name: Lighthouse (mobile)
+        run: |
+          LIGHTHOUSE=1 npm run build:preview
+          npx --yes @lhci/cli@0.15.1 autorun
+      - name: Upload Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse
+          path: .lighthouseci
+          include-hidden-files: true
+          retention-days: 14

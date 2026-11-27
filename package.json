@@ -1,0 +1,23 @@
+{
+  "name": "shinfield-parish-first-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website for Shinfield Parish First, independent residents standing for Shinfield Parish Council in May 2027.",
+  "type": "module",
+  "engines": {
+    "node": ">=22 <23"
+  },
+  "scripts": {
+    "start": "ELEVENTY_ENV=development eleventy --serve",
+    "build": "eleventy && node scripts/build-images.js && node scripts/check-build.js",
+    "build:preview": "ELEVENTY_ENV=preview npm run build",
+    "build:production": "ELEVENTY_ENV=production npm run build",
+    "test": "node --test --test-concurrency=1 \"tests/*.test.js\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.8",
+    "@axe-core/playwright": "4.11.3",
+    "html-validate": "10.17.1",
+    "playwright": "1.63.0"
+  }
+}

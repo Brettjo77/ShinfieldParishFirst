@@ -1,0 +1,12 @@
+<footer class="site-footer">
+<div class="wrap">
+<p class="footer-brand"><img class="footer-emblem" src="/assets/img/brand/spf-logo-colour-on-dark.svg" alt="" width="48" height="48"><span>{{ site.name }} · {{ site.tagline }} · Independent residents standing for Shinfield Parish Council</span></p>
+<p class="footer-disclaimer">Shinfield Parish First is an independent group. It is not connected with Shinfield Parish Council or Wokingham Borough Council.</p>
+<ul class="footer-links">
+{%- for item in nav.footer %}
+<li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.text }}</a></li>
+{%- endfor %}
+</ul>
+<p class="imprint">{% include "partials/imprint.njk" %}</p>
+</div>
+</footer>
