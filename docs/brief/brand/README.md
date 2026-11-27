@@ -1,6 +1,6 @@
 # Shinfield Parish First: interim logo kit
 
-Interim choice by Brett, 27 Nov 2026: **Concept B "Field & path"** in **Damson & Copper**, until the steering group meets (about mid-December 2026). Treat as provisional.
+Interim choice by Brett, 27 Nov 2026: **Concept B "Field & path"** in **Charcoal & Copper** (chosen 27 Nov 2026 evening, replacing Damson & Copper), until the steering group meets (about mid-December 2026). Treat as provisional.
 
 | File | Use |
 |---|---|

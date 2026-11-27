@@ -1,6 +1,6 @@
 # Rebranding after the group decides
 
-The interim brand is Damson and Copper with Concept B "Field and path" (Brett, 27 November 2026). Everything visual comes from two places, so a rebrand touches only these:
+The interim brand is Charcoal and Copper with Concept B "Field and path" (Brett, 27 November 2026; it replaced Damson and Copper the same evening). Everything visual comes from two places, so a rebrand touches only these:
 
 ## 1. Logo files: `src/assets/img/brand/`
 
@@ -10,7 +10,7 @@ Replace these files with new ones **of the same names**:
 - `spf-logo-colour-on-dark.svg` (footer, share card)
 - `spf-emblem-ballot-bw.svg` (ballot illustration on Home)
 - the matching `.png` files and lockups
-- `spf-brand-tokens.css` (the kit's colour and font values: `--spf-damson`, `--spf-copper`, `--spf-copper-text`, `--spf-stone`, `--spf-ink`, `--spf-green`)
+- `spf-brand-tokens.css` (the kit's colour and font values: `--spf-main`, `--spf-copper`, `--spf-copper-text`, `--spf-stone`, `--spf-ink`, `--spf-green`)
 
 ## 2. Colour roles: `src/assets/css/tokens.css`
 
